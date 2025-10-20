@@ -3,20 +3,10 @@
 import { AnimatedSection } from '@/components/animated-section'
 import { DateTimeline } from '@/components/date-timeline'
 
-interface CareerTimelineItem {
-  title: string;
-  company: string;
-  location: string;
-  date: string;
-  type: string;
-  description: string;
-  achievements: string[];
-  icon: React.ReactNode;
-  color: string;
-}
+import { TimelineEvent } from '@/components/date-timeline';
 
-interface CareerTimeline {
-  [year: string]: CareerTimelineItem[];
+export interface CareerTimeline {
+  [year: string]: TimelineEvent[];
 }
 
 interface CareerProps {

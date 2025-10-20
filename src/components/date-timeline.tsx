@@ -5,7 +5,7 @@ import { AnimatedCard } from '@/components/animated-card'
 import { Badge } from '@/components/ui/badge'
 import { Building, Calendar, MapPin } from 'lucide-react'
 
-interface TimelineEvent {
+export interface TimelineEvent {
   title: string
   company: string
   location: string

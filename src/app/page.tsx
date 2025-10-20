@@ -8,7 +8,7 @@ import { Navigation } from '@/components/portfolio/Navigation'
 import { Hero } from '@/components/portfolio/Hero'
 import { About } from '@/components/portfolio/About'
 import { Projects } from '@/components/portfolio/Projects'
-import { Career } from '@/components/portfolio/Career'
+import { Career, CareerTimeline } from '@/components/portfolio/Career'
 import { Skills } from '@/components/portfolio/Skills'
 import { Creative } from '@/components/portfolio/Creative'
 import { Contact } from '@/components/portfolio/Contact'
@@ -272,7 +272,7 @@ export default function Portfolio() {
     }
   ]
 
-  const careerTimeline = {
+  const careerTimeline: CareerTimeline = {
   "2024": [
     {
       title: "Senior Full-Stack Developer",
