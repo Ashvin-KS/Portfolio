@@ -29,7 +29,7 @@ export function DateTimeline({ items }: DateTimelineProps) {
       
       <div className="space-y-8">
         {Object.entries(items)
-          .sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA))
+          .sort(([yearA], [yearB]) => parseInt(yearA) - parseInt(yearB))
           .map(([year, events], yearIndex) => (
             <AnimatedSection 
               key={year} 

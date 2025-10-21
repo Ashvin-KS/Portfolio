@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
+import StagewiseProvider from "@/components/StagewiseProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,21 +16,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe - Full-Stack Developer Portfolio",
-  description: "Personal portfolio of John Doe, a full-stack developer specializing in React, Next.js, and modern web technologies.",
-  keywords: ["John Doe", "portfolio", "full-stack developer", "React", "Next.js", "TypeScript", "web development"],
-  authors: [{ name: "John Doe" }],
+  title: "Ashvin K S - Full-Stack Developer Portfolio",
+  description: "Personal portfolio of Ashvin K S, a full-stack developer specializing in React, Next.js, and modern web technologies.",
+  keywords: ["Ashvin K S", "portfolio", "full-stack developer", "React", "Next.js", "TypeScript", "web development"],
+  authors: [{ name: "Ashvin K S" }],
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "John Doe - Full-Stack Developer Portfolio",
+    title: "Ashvin K S - Full-Stack Developer Portfolio",
     description: "Personal portfolio showcasing projects and skills of a full-stack developer",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Doe - Full-Stack Developer Portfolio",
+    title: "Ashvin K S - Full-Stack Developer Portfolio",
     description: "Personal portfolio showcasing projects and skills of a full-stack developer",
   },
 };
@@ -52,6 +53,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
+          <StagewiseProvider />
         </ThemeProvider>
       </body>
     </html>

@@ -16,7 +16,7 @@ export function Hero({ animatedTitle, scrollToSection }: HeroProps) {
     <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-16">
       <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          <div className="relative inline-block mb-6">
+          <div className="relative inline-block mb-6 w-32 h-32">
             <Avatar className="w-32 h-32 mx-auto">
               <AvatarImage src="/api/placeholder/128/128" alt="Profile" />
               <AvatarFallback className="text-2xl">AK</AvatarFallback>
@@ -24,7 +24,7 @@ export function Hero({ animatedTitle, scrollToSection }: HeroProps) {
             <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse"></div>
           </div>
           <div className="relative h-80 w-250 flex items-center justify-center">
-            <ASCIIText text="Ashvin K S" enableWaves={true} textFontSize={300} asciiFontSize={12} />
+            <ASCIIText text="Ashvin K S" enableWaves={true} textFontSize={300} asciiFontSize={9} />
           </div>
           <p className="text-xl md:text-2xl text-muted-foreground mb-6 h-8">
             <span className="inline-block">{animatedTitle}</span>
@@ -73,4 +73,5 @@ export function Hero({ animatedTitle, scrollToSection }: HeroProps) {
     </section>
   )
 }
+
 
