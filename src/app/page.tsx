@@ -218,78 +218,7 @@ export default function Portfolio() {
       features: ["Procedural Generation", "Dynamic Lighting", "Real-time Rendering"],
       developmentTime: "Ongoing"
     },
-    {
-      title: "Neon Runner",
-      description: "A fast-paced endless runner game set in a cyberpunk city with procedural level generation.",
-      engine: "Unity",
-      genre: "Endless Runner",
-      platform: "PC, Mobile",
-      role: "Solo Developer",
-      image: "/api/placeholder/400/300",
-      featured: true,
-      technologies: ["Unity", "C#", "Procedural Generation", "Mobile Optimization"],
-      demoUrl: "https://demo.com",
-      githubUrl: "https://github.com",
-      playStoreUrl: "https://play.google.com",
-      achievements: [
-        "10k+ downloads on mobile platforms",
-        "4.5/5 star rating",
-        "Featured in indie game showcases"
-      ]
-    },
-    {
-      title: "Crystal Quest",
-      description: "A 2D puzzle-adventure game with unique mechanics and hand-drawn artwork.",
-      engine: "Godot",
-      genre: "Puzzle Adventure",
-      platform: "PC, Switch",
-      role: "Lead Developer & Designer",
-      image: "/api/placeholder/400/300",
-      featured: true,
-      technologies: ["Godot", "GDScript", "Pixel Art", "Level Design"],
-      demoUrl: "https://demo.com",
-      githubUrl: "https://github.com",
-      achievements: [
-        "Winner of Game Jam 2023",
-        "Featured in indie game blogs",
-        "Positive reviews from gaming community"
-      ]
-    },
-    {
-      title: "Space Defense",
-      description: "A multiplayer space strategy game with real-time combat and resource management.",
-      engine: "Unreal Engine",
-      genre: "Strategy",
-      platform: "PC",
-      role: "Network Programmer",
-      image: "/api/placeholder/400/300",
-      featured: false,
-      technologies: ["Unreal Engine", "C++", "Networking", "Multiplayer"],
-      demoUrl: "https://demo.com",
-      achievements: [
-        "Implemented real-time multiplayer",
-        "Optimized network code for 100+ players",
-        "Contributed to core gameplay systems"
-      ]
-    },
-    {
-      title: "Retro Platformer",
-      description: "A nostalgic 8-bit style platformer with modern gameplay mechanics and chiptune soundtrack.",
-      engine: "Unity",
-      genre: "Platformer",
-      platform: "PC, Console",
-      role: "Game Designer & Developer",
-      image: "/api/placeholder/400/300",
-      featured: false,
-      technologies: ["Unity", "C#", "2D Animation", "Audio Design"],
-      demoUrl: "https://demo.com",
-      githubUrl: "https://github.com",
-      achievements: [
-        "Created custom physics system",
-        "Designed 50+ unique levels",
-        "Composed original soundtrack"
-      ]
-    }
+    
   ]
 
   const careerTimeline: CareerTimeline = {
