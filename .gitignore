@@ -45,3 +45,5 @@ next-env.d.ts
 
 # database
 db/custom.db
+
+/src/components/StagewiseProvider.tsx
