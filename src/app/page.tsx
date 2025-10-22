@@ -14,7 +14,9 @@ import { Creative } from '@/components/portfolio/Creative'
 import { Contact } from '@/components/portfolio/Contact'
 import { Footer } from '@/components/portfolio/Footer'
 import Waves from '@/components/Waves'
-import Galaxy from '@/components/Galaxy'
+// import Galaxy from '@/components/Galaxy'
+
+
 import {
   Code,
   Database,
@@ -199,6 +201,24 @@ export default function Portfolio() {
 
   const gameDevProjects = [
     {
+      title: "Unreal Engine Landscape",
+      description: "A landscape visualization project created with Unreal Engine 5.",
+      engine: "UE5",
+      genre: "landscape Visualization",
+      platform: "PC, Mobile",
+      role: "Solo Designer",
+      image: "/images/unrealenginelandscape.jpg",
+      featured: true,
+      technologies: ["Unreal Engine", "Blueprints", "C++", "Procedural Generation"],
+      demoUrl: "https://github.com/Ashvin-KS/",
+      githubUrl: "https://github.com/Ashvin-KS/",
+      achievements: [],
+      status: "In Development",
+      platforms: ["PC", "Mobile"],
+      features: ["Procedural Generation", "Dynamic Lighting", "Real-time Rendering"],
+      developmentTime: "Ongoing"
+    },
+    {
       title: "Neon Runner",
       description: "A fast-paced endless runner game set in a cyberpunk city with procedural level generation.",
       engine: "Unity",
@@ -273,263 +293,118 @@ export default function Portfolio() {
   ]
 
   const careerTimeline: CareerTimeline = {
-  "2017": [
+  "2022": [
     {
-      title: "First Hackathon",
-      company: "BostonHacks",
-      location: "Boston, MA",
-      date: "October 2017",
-      type: "achievement",
-      description: "Participated in first hackathon and built a real-time collaboration tool.",
+      title: "Exploring HTML, CSS, and JavaScript",
+      company: "SSM School",
+      location: "Chennai, India",
+      date: "August 2022",
+      type: "learning",
+      description: "My baby steps to web development.",
       achievements: [
-        "Built MVP in 24 hours",
-        "Learned React and Node.js",
-        "Met future co-founders"
+        "coded simple youtube iframe embed page",
+        "Learnt basics of web dev like js, html, css",
+        "Created my first personal webpage"
       ],
       icon: <Award className="w-5 h-5" />,
       color: "bg-yellow-500"
     },
     {
-      title: "Computer Science Tutor",
-      company: "University Learning Center",
-      location: "Boston, MA",
-      date: "September 2017 - May 2018",
-      type: "work",
-      description: "Tutored students in computer science fundamentals and programming.",
+      title: "Python journery begins",
+      company: "SSM School",
+      location: "Chennai, India",
+      date: "September 2022 - May 2024",
+      type: "learning",
+      description: "did projects with my sql and python ,tkinter and cerated bus booking app and water sort .",
       achievements: [
-        "Tutored 20+ students",
-        "Improved student grades by 15%",
-        "Developed tutoring materials"
+        "mastered basics of python",
+        "Created GUI applications using Tkinter",
+        "Implemented database operations with SQLite",
       ],
       icon: <GraduationCap className="w-5 h-5" />,
       color: "bg-orange-500"
     }
   ],
-  "2018": [
+  "2024": [
     {
-      title: "Web Development Club President",
-      company: "University of Technology",
-      location: "Boston, MA",
-      date: "September 2018 - May 2019",
-      type: "leadership",
-      description: "Led a club of 50+ students focused on web development and technologies.",
+      title: "Joined A University ",
+      company: "Vellore Institute of Technology",
+      location: "Chennai, India",
+      date: "August 2024 - August 2028",
+      type: "education",
+      description: "Pursuing Bachelor of Technology in Computer Science and Engineering.",
       achievements: [
-        "Organized 10+ workshops",
-        "Grew club membership by 200%",
-        "Partnered with 5 local companies"
+        "Maintained 9.41 GPA",
+        "Completed 5  projects",
+        "explored various domains like web dev, machine learning and game dev"
       ],
       icon: <Globe className="w-5 h-5" />,
       color: "bg-green-500"
     },
-    {
-      title: "Teaching Assistant",
-      company: "University of Technology",
-      location: "Boston, MA",
-      date: "January 2018 - May 2018",
-      type: "education",
-      description: "TA for Introduction to Web Development course.",
-      achievements: [
-        "Taught 30+ students",
-        "Held weekly office hours",
-        "Created course materials"
-      ],
-      icon: <GraduationCap className="w-5 h-5" />,
-      color: "bg-orange-500"
-    }
+    
   ],
-  "2019": [
+  "2023": [
     {
-      title: "Software Engineering Intern",
-      company: "Tech Corp",
-      location: "Seattle, WA",
-      date: "June 2019 - August 2019",
-      type: "work",
-      description: "Summer internship working on frontend development for enterprise applications.",
+      title: "My journey with Gamdev begins",
+      company: "Unreal Engine and Blender",
+      location: "Chennai, India",
+      date: "July 2023 ",
+      type: "hobby",
+      description: "Exploring game development using Unreal Engine and Blender.",
       achievements: [
-        "Developed 3 major features",
-        "Received full-time offer",
-        "Mentored 2 junior interns"
+        "Created a 3D game prototype",
+        "Learned basic 3D modeling and animation",
+        "Participated in online game jams"
       ],
       icon: <Briefcase className="w-5 h-5" />,
       color: "bg-blue-500"
     },
     {
-      title: "Bachelor of Computer Science",
-      company: "University of Technology",
-      location: "Boston, MA",
-      date: "September 2015 - May 2019",
-      type: "education",
-      description: "Graduated Magna Cum Laude with focus on Software Engineering and Web Development.",
+      title: "Explored Photoshop and DaVinci Resolve for YouTube channel",
+      company: "Content Creation",
+      location: "Chennai, India",
+      date: "December 2023",
+      type: "hobby",
+      description: "Started a YouTube channel and learned video editing and graphic design.",
       achievements: [
-        "GPA: 3.8/4.0",
-        "Dean's List all semesters",
-        "Won 3 hackathons",
-        "Teaching Assistant for Web Development course"
+        "Learnt color grading techniques and video stabilization",
+        "Tried Firefly AI in Photoshop for fun edits",
+        "Mostly into frame interpolation for movies 😂"
       ],
       icon: <GraduationCap className="w-5 h-5" />,
       color: "bg-orange-500"
     }
   ],
-  "2020": [
+  "2025": [
     {
-      title: "Frontend Developer",
-      company: "StartUp Hub",
-      location: "Austin, TX",
-      date: "January 2020 - February 2021",
+      title: "Full-Stack Developer",
+      company: "Microsoft Innovation Club VIT",
+      location: "Chennai, India",
+      date: "October,10,2025 - Present",
       type: "work",
-      description: "Focused on creating responsive and interactive user interfaces.",
+      description: "Did a hack-a-throne promotional website ",
       achievements: [
-        "Developed component library used across 3 products",
-        "Improved user engagement by 25%",
+        "Developed and launched promotional website for Hack-a-throne event",
+        "Suggested ideas for new apps to be built",
         "Collaborated with UX team on design system"
       ],
       icon: <Code className="w-5 h-5" />,
       color: "bg-purple-500"
     },
     {
-      title: "Hackathon Winner",
-      company: "HackMIT 2020",
-      location: "Boston, MA",
-      date: "September 2020",
-      type: "achievement",
-      description: "Won first place in a 48-hour hackathon with an AI-powered learning platform.",
+      title: "Frontend Developer",
+      company: "Code chef Student Chapter VIT",
+      location: "Chennai, India",
+      date: "October,22,2025 - Present",
+      type: "work",
+      description: "Worst club in my mind for now , but still doin weekly coding challenges",
       achievements: [
-        "Built MVP in 48 hours",
-        "Won $10k prize",
-        "Received interest from 3 VCs"
+        "Participated in weekly coding challenges",
       ],
       icon: <Award className="w-5 h-5" />,
       color: "bg-yellow-500"
     }
   ],
-  "2021": [
-    {
-      title: "Full-Stack Developer",
-      company: "Digital Solutions Ltd.",
-      location: "New York, NY",
-      date: "March 2021 - December 2021",
-      type: "work",
-      description: "Developed and maintained multiple client projects using modern JavaScript frameworks.",
-      achievements: [
-        "Built 15+ client websites and applications",
-        "Reduced page load times by 35%",
-        "Integrated third-party APIs and payment systems"
-      ],
-      icon: <Building className="w-5 h-5" />,
-      color: "bg-green-500"
-    },
-    {
-      title: "Tech Blog Writer",
-      company: "Medium",
-      location: "Online",
-      date: "July 2021 - Present",
-      type: "writing",
-      description: "Write technical articles about web development, React, and modern JavaScript.",
-      achievements: [
-        "Published 25+ technical articles",
-        "50k+ total readers",
-        "Featured in JavaScript Weekly"
-      ],
-      icon: <Code className="w-5 h-5" />,
-      color: "bg-orange-500"
-    }
-  ],
-  "2022": [
-    {
-      title: "Full-Stack Developer",
-      company: "Tech Innovations Inc.",
-      location: "San Francisco, CA",
-      date: "January 2022 - May 2023",
-      type: "work",
-      description: "Developed and maintained multiple client projects using modern JavaScript frameworks.",
-      achievements: [
-        "Built 10+ client websites and applications",
-        "Reduced page load times by 35%",
-        "Integrated third-party APIs and payment systems"
-      ],
-      icon: <Briefcase className="w-5 h-5" />,
-      color: "bg-blue-500"
-    },
-    {
-      title: "React Conference Speaker",
-      company: "React Summit 2022",
-      location: "Amsterdam, Netherlands",
-      date: "October 2022",
-      type: "speaking",
-      description: "Spoke about performance optimization in React applications at international conference.",
-      achievements: [
-        "Presented to 500+ developers",
-        "Received 4.8/5 rating from attendees",
-        "Published accompanying blog post with 10k+ views"
-      ],
-      icon: <Globe className="w-5 h-5" />,
-      color: "bg-green-500"
-    }
-  ],
-  "2023": [
-    {
-      title: "Tech Lead - E-Commerce Platform",
-      company: "Tech Innovations Inc.",
-      location: "San Francisco, CA",
-      date: "June 2023 - December 2023",
-      type: "work",
-      description: "Led the development of a new e-commerce platform serving 100k+ users.",
-      achievements: [
-        "Architected microservices architecture",
-        "Implemented real-time inventory management",
-        "Reduced checkout time by 50%"
-      ],
-      icon: <Briefcase className="w-5 h-5" />,
-      color: "bg-blue-500"
-    },
-    {
-      title: "AWS Certification",
-      company: "Amazon Web Services",
-      location: "Online",
-      date: "September 2023",
-      type: "certification",
-      description: "Achieved AWS Solutions Architect Professional certification.",
-      achievements: [
-        "Designed scalable cloud architecture",
-        "Implemented security best practices",
-        "Optimized costs for cloud infrastructure"
-      ],
-      icon: <Award className="w-5 h-5" />,
-      color: "bg-yellow-500"
-    }
-  ],
-  "2024": [
-    {
-      title: "Senior Full-Stack Developer",
-      company: "Tech Innovations Inc.",
-      location: "San Francisco, CA",
-      date: "January 2024 - Present",
-      type: "work",
-      description: "Lead development of enterprise web applications using React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions.",
-      achievements: [
-        "Led team of 5 developers to launch flagship product",
-        "Improved application performance by 40%",
-        "Implemented CI/CD pipeline reducing deployment time by 60%"
-      ],
-      icon: <Briefcase className="w-5 h-5" />,
-      color: "bg-blue-500"
-    },
-    {
-      title: "Open Source Contributor",
-      company: "React Community",
-      location: "Remote",
-      date: "March 2024",
-      type: "project",
-      description: "Contributed to popular React libraries and helped improve documentation for the community.",
-      achievements: [
-        "Merged 15+ PRs to major React libraries",
-        "Improved documentation for 3 popular packages",
-        "Active participant in React community discussions"
-      ],
-      icon: <Github className="w-5 h-5" />,
-      color: "bg-purple-500"
-    }
-  ]
 }
 
   return (
@@ -548,8 +423,9 @@ export default function Portfolio() {
         yGap={36}
       /> }
       <div className="absolute top-0 left-0 w-full h-full">
-        {/*<Galaxy 
+        {/*<Galaxy
         saturation={1}/>*/}
+      
       </div>
       <Navigation
         isMenuOpen={isMenuOpen}

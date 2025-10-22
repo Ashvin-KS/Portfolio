@@ -1,4 +1,4 @@
-{/*'use client';
+'use client';
 
 import { useEffect } from 'react';
 import { initToolbar } from '@stagewise/toolbar';
@@ -32,4 +32,4 @@ export default function StagewiseProvider() {
   }, []);
 
   return null;
-}*/}
+}

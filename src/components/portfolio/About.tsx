@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { AnimatedSection } from '@/components/animated-section'
 import { AnimatedCard } from '@/components/animated-card'
+import SpotlightCard from '@/components/ui/SpotlightCard'
 import ScrambledText from '../ScrambledText';
 
 export function About() {
@@ -36,14 +37,20 @@ export function About() {
                 { value: "30+", label: "", delay: 200 },
                 { value: "15+", label: "Skills", delay: 300 }
               ].map((stat, index) => (
-                <AnimatedCard key={index} className="transform transition-all duration-300 hover:scale-105" data-delay={stat.delay}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-2xl font-bold text-primary">{stat.value}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </CardContent>
-                </AnimatedCard>
+                <SpotlightCard 
+                  key={index} 
+                  className="flex flex-col gap-6 rounded-xl border py-6 shadow-sm ease-out hover:shadow-xl hover:-translate-y-1 border-border/50 bg-background/95 backdrop-blur-sm transform transition-all duration-300 hover:scale-105"
+                  data-delay={stat.delay}
+                >
+                  <div className="p-0">
+                    <div className="grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 pb-2 text-left">
+                      <CardTitle className="text-2xl font-bold text-primary text-left">{stat.value}</CardTitle>
+                    </div>
+                    <div className="px-6">
+                      <p className="text-sm text-muted-foreground text-left">{stat.label}</p>
+                    </div>
+                  </div>
+                </SpotlightCard>
               ))}
             </div>
           </AnimatedSection>
