@@ -119,6 +119,57 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Show default cursor, cat will follow it */
+  
+  /* Show default cursor for text inputs and textareas */
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="search"], input[type="url"], input[type="tel"],
+  textarea, [contenteditable="true"] {
+    cursor: text !important;
+  }
+  
+  /* Show default cursor for interactive elements that need it */
+  [role="slider"], [role="scrollbar"], iframe {
+    cursor: auto !important;
+  }
+}
+
+@layer components {
+  /* Cat cursor styles */
+  .cat-cursor {
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
+  }
+  
+  .paw-print {
+    pointer-events: none;
+    z-index: 9998;
+    animation: fadeOut 3s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5) rotate(15deg);
+    }
+  }
+  
+  @keyframes catWalk {
+    0%, 100% { transform: translateY(0px) rotate(-5deg); }
+    25% { transform: translateY(-3px) rotate(0deg); }
+    50% { transform: translateY(0px) rotate(5deg); }
+    75% { transform: translateY(-3px) rotate(0deg); }
+  }
+  
+  .cat-walking {
+    animation: catWalk 0.4s infinite;
+  }
 }
 
 

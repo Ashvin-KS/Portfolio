@@ -121,6 +121,7 @@ interface Config {
 interface WavesProps {
   lineColor?: string;
   backgroundColor?: string;
+  cursorColor?: string;
   waveSpeedX?: number;
   waveSpeedY?: number;
   waveAmpX?: number;
@@ -137,6 +138,7 @@ interface WavesProps {
 const Waves: React.FC<WavesProps> = ({
   lineColor = 'black',
   backgroundColor = 'transparent',
+  cursorColor = '#160000',
   waveSpeedX = 0.0125,
   waveSpeedY = 0.005,
   waveAmpX = 32,
@@ -386,8 +388,9 @@ const Waves: React.FC<WavesProps> = ({
       className={`absolute top-0 left-0 w-full h-full overflow-hidden ${className}`}
     >
       <div
-        className="absolute top-0 left-0 bg-[#160000] rounded-full w-[0.5rem] h-[0.5rem]"
+        className="absolute top-0 left-0 rounded-full w-[0.5rem] h-[0.5rem]"
         style={{
+          backgroundColor: cursorColor,
           transform: 'translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0)',
           willChange: 'transform'
         }}

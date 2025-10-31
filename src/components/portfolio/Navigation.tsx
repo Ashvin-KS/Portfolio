@@ -34,31 +34,46 @@ export function Navigation({
     { id: 'contact', label: 'Contact' }
   ]
 
+  // --- THIS IS THE CORRECTED LOGIC ---
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id))
-      const scrollPosition = window.scrollY + 100
-
       // Check if we've passed the hero section
       const heroSection = document.getElementById('home')
+      let currentHasPassedHero = false;
       if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
-        setHasPassedHero(window.scrollY > heroBottom - 100)
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        // A threshold of 100px from the bottom of the hero works well
+        currentHasPassedHero = window.scrollY > heroBottom - 100;
+      }
+      
+      // If the scroll position crosses the boundary, update the state
+      if (currentHasPassedHero !== hasPassedHero) {
+        setHasPassedHero(currentHasPassedHero);
+        // Automatically open/close the menu when crossing.
+        // If we pass the hero, close it. If we scroll back up, open it.
+        setIsMenuOpen(!currentHasPassedHero);
       }
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i]
+      // Update active section highlighting based on middle of the screen
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navItems[i].id)
         if (section && section.offsetTop <= scrollPosition) {
           setActiveSection(navItems[i].id)
           break
         }
       }
     }
+    
+    // Run once on mount to set the initial state correctly
+    handleScroll();
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [hasPassedHero, setIsMenuOpen])
 
+
+  // This function remains the same as your original
   const handleNavClick = (id: string) => {
     scrollToSection(id)
     setActiveSection(id)
@@ -66,11 +81,15 @@ export function Navigation({
       setIsMenuOpen(false)
     }
   }
+  
+  // This boolean combines the states to simplify the JSX logic
+  const isExpanded = isMenuOpen || !hasPassedHero;
 
+  // --- THE JSX BELOW IS YOUR ORIGINAL STRUCTURE AND STYLING ---
   return (
     <nav
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-full transition-all duration-900 ease-out ${
-        isMenuOpen || !hasPassedHero
+        isExpanded
           ? 'w-[90vw] max-w-4xl h-auto px-4 py-4'
           : 'w-14 h-14 sm:w-16 sm:h-16 hover:scale-110'
       }`}
@@ -87,14 +106,16 @@ export function Navigation({
       }}
     >
       <div className="relative w-full h-full flex items-center justify-center">
-        {!isMenuOpen && hasPassedHero && (
+        {/* Uses corrected `isExpanded` logic but keeps original style */}
+        {!isExpanded && (
           <Menu
             className="w-6 h-6 transition-transform duration-300 hover:rotate-90"
             aria-hidden="true"
           />
         )}
 
-        {(isMenuOpen || !hasPassedHero) && (
+        {/* Uses corrected `isExpanded` logic but keeps original style and animations */}
+        {isExpanded && (
           <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in duration-300">
             <div className="flex flex-wrap justify-center items-center gap-2">
               {navItems.map((item) => (
@@ -111,20 +132,15 @@ export function Navigation({
                   aria-current={activeSection === item.id ? 'page' : undefined}
                 >
                   {item.label}
-                  
-                  {/* Active indicator */}
                   {activeSection === item.id && (
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                   )}
-                  
-                  {/* Hover background */}
                   {hoveredItem === item.id && (
                     <span className="absolute inset-0 bg-accent/50 rounded-full -z-10 animate-in fade-in duration-200" />
                   )}
                 </button>
               ))}
               
-              {/* Theme toggle inline with nav items */}
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -140,10 +156,9 @@ export function Navigation({
               )}
             </div>
             
+            {/* Kept your original mobile close button logic */}
             {hasPassedHero && (
               <div className="flex items-center gap-2 sm:hidden">
-                
-                {/* Close button for mobile */}
                 <button
                   onClick={() => setIsMenuOpen(false)}
                   className="sm:hidden p-2.5 rounded-full hover:bg-accent transition-all duration-300"

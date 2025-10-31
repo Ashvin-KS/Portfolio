@@ -14,6 +14,7 @@ import { Creative } from '@/components/portfolio/Creative'
 import { Contact } from '@/components/portfolio/Contact'
 import { Footer } from '@/components/portfolio/Footer'
 import Waves from '@/components/Waves'
+import { CatCursor } from '@/components/CatCursor'
 import { GoToTopButton } from '@/components/GoToTopButton'
 // import Galaxy from '@/components/Galaxy'
 
@@ -339,9 +340,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      { <Waves
-        lineColor="#1c6872ff"
-        backgroundColor="rgba(0, 0, 0, 0.2)"
+      { mounted && <Waves
+        lineColor={theme === 'dark' ? "#1c6872ff" : "#4a9d9fff"}
+        backgroundColor={theme === 'dark' ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.1)"}
+        cursorColor={theme === 'dark' ? "#160000" : "#e0f2f1"}
         waveSpeedX={0.02}
         waveSpeedY={0.01}
         waveAmpX={40}
@@ -365,6 +367,24 @@ export default function Portfolio() {
         setTheme={setTheme}
         scrollToSection={scrollToSection}
       />
+      {mounted && <CatCursor />}
+      
+      {/* Add hover zones for cat cursor */}
+      <style jsx global>{`
+        .cat-hover-zone {
+          position: relative;
+        }
+        
+        .cat-hover-zone:hover::before {
+          content: '🐱';
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          font-size: 12px;
+          z-index: 1000;
+          animation: bounce 1s infinite;
+        }
+      `}</style>
       <Hero animatedTitle={animatedTitle} scrollToSection={scrollToSection} />
       <About />
       <Projects projects={projects} />
