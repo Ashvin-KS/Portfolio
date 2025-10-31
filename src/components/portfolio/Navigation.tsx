@@ -22,6 +22,7 @@ export function Navigation({
 }: NavigationProps) {
   const [activeSection, setActiveSection] = useState('home')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const [hasPassedHero, setHasPassedHero] = useState(false)
   
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -37,6 +38,13 @@ export function Navigation({
     const handleScroll = () => {
       const sections = navItems.map(item => document.getElementById(item.id))
       const scrollPosition = window.scrollY + 100
+
+      // Check if we've passed the hero section
+      const heroSection = document.getElementById('home')
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
+        setHasPassedHero(window.scrollY > heroBottom - 100)
+      }
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i]
@@ -62,12 +70,12 @@ export function Navigation({
   return (
     <nav
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-full transition-all duration-900 ease-out ${
-        isMenuOpen
-          ? 'w-[90vw] max-w-4xl h-auto px- py-4'
+        isMenuOpen || !hasPassedHero
+          ? 'w-[90vw] max-w-4xl h-auto px-4 py-4'
           : 'w-14 h-14 sm:w-16 sm:h-16 hover:scale-110'
       }`}
-      onMouseEnter={() => setIsMenuOpen(true)}
-      onMouseLeave={() => setIsMenuOpen(false)}
+      onMouseEnter={hasPassedHero ? () => setIsMenuOpen(true) : undefined}
+      onMouseLeave={hasPassedHero ? () => setIsMenuOpen(false) : undefined}
       role="navigation"
       aria-label="Main navigation"
       style={{
@@ -79,14 +87,14 @@ export function Navigation({
       }}
     >
       <div className="relative w-full h-full flex items-center justify-center">
-        {!isMenuOpen && (
-          <Menu 
-            className="w-6 h-6 transition-transform duration-300 hover:rotate-90" 
+        {!isMenuOpen && hasPassedHero && (
+          <Menu
+            className="w-6 h-6 transition-transform duration-300 hover:rotate-90"
             aria-hidden="true"
           />
         )}
 
-        {isMenuOpen && (
+        {(isMenuOpen || !hasPassedHero) && (
           <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in duration-300">
             <div className="flex flex-wrap justify-center items-center gap-2">
               {navItems.map((item) => (
@@ -132,17 +140,19 @@ export function Navigation({
               )}
             </div>
             
-            <div className="flex items-center gap-2 sm:hidden">
-              
-              {/* Close button for mobile */}
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="sm:hidden p-2.5 rounded-full hover:bg-accent transition-all duration-300"
-                aria-label="Close menu"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+            {hasPassedHero && (
+              <div className="flex items-center gap-2 sm:hidden">
+                
+                {/* Close button for mobile */}
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="sm:hidden p-2.5 rounded-full hover:bg-accent transition-all duration-300"
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

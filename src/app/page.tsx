@@ -14,6 +14,7 @@ import { Creative } from '@/components/portfolio/Creative'
 import { Contact } from '@/components/portfolio/Contact'
 import { Footer } from '@/components/portfolio/Footer'
 import Waves from '@/components/Waves'
+import { GoToTopButton } from '@/components/GoToTopButton'
 // import Galaxy from '@/components/Galaxy'
 
 
@@ -30,7 +31,7 @@ import {
 } from 'lucide-react'
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(true)
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
   const { toast } = useToast()
@@ -140,7 +141,7 @@ export default function Portfolio() {
 
   const skills = [
     { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"], icon: <Code className="w-5 h-5" /> },
-    { category: "Backend", items: ["Node.js", "Python", "Express", "FastAPI", "GraphQL"], icon: <Server className="w-5 h-5" /> },
+    { category: "Backend", items: ["Node.js", "Python", "Express", "FastAPI", "GraphQL", "C#"], icon: <Server className="w-5 h-5" /> },
     { category: "Database", items: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "MySQL"], icon: <Database className="w-5 h-5" /> },
     { category: "Tools", items: ["Git", "Docker", "AWS", "CI/CD", "Agile"], icon: <Globe className="w-5 h-5" /> }
   ]
@@ -235,7 +236,7 @@ export default function Portfolio() {
         "Learnt basics of web dev like js, html, css",
         "Created my first personal webpage"
       ],
-      icon: <Award className="w-5 h-5" />,
+      icon: <Code className="w-5 h-5" />,
       color: "bg-yellow-500"
     },
     {
@@ -244,13 +245,13 @@ export default function Portfolio() {
       location: "Chennai, India",
       date: "September 2022 - May 2024",
       type: "learning",
-      description: "did projects with my sql and python ,tkinter and cerated bus booking app and water sort .",
+      description: "Did projects with my sql and python ,tkinter and cerated bus booking app and water sort .",
       achievements: [
         "mastered basics of python",
         "Created GUI applications using Tkinter",
         "Implemented database operations with SQLite",
       ],
-      icon: <GraduationCap className="w-5 h-5" />,
+      icon: <Code className="w-5 h-5" />,
       color: "bg-orange-500"
     }
   ],
@@ -300,7 +301,7 @@ export default function Portfolio() {
         "Tried Firefly AI in Photoshop for fun edits",
         "Mostly into frame interpolation for movies 😂"
       ],
-      icon: <GraduationCap className="w-5 h-5" />,
+      icon: <Code className="w-5 h-5" />,
       color: "bg-orange-500"
     }
   ],
@@ -330,7 +331,7 @@ export default function Portfolio() {
       achievements: [
         "Participated in weekly coding challenges",
       ],
-      icon: <Award className="w-5 h-5" />,
+      icon: <Code className="w-5 h-5" />,
       color: "bg-yellow-500"
     }
   ],
@@ -377,6 +378,7 @@ export default function Portfolio() {
         isSubmitting={isSubmitting}
       />
       <Footer />
+      <GoToTopButton />
     </div>
   )
 }
