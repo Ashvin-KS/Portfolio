@@ -31,7 +31,7 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
 
     const split = SplitText.create(rootRef.current.querySelector('p'), {
       type: 'chars',
-      charsClass: 'inline-block will-change-transform'
+      charsClass: 'inline will-change-transform'
     });
 
     split.chars.forEach(el => {
@@ -74,10 +74,10 @@ const ScrambledText: React.FC<ScrambledTextProps> = ({
   return (
     <div
       ref={rootRef}
-      className={`w-full font-mono text-[clamp(14px,4vw,32px)] text-white ${className}`}
+      className={`w-full font-mono text-[clamp(14px,4vw,32px)] ${className}`}
       style={style}
     >
-      <p>{children}</p>
+      <p className="whitespace-normal break-words">{children}</p>
     </div>
   );
 };

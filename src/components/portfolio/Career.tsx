@@ -15,9 +15,14 @@ interface CareerProps {
 
 export function Career({ careerTimeline }: CareerProps) {
   return (
-    <section id="career" className="py-20 px-4">
+    <section id="career" className="py-24 px-4">
       <AnimatedSection animation="fade-up" className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Career Journey</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Career Journey</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            My professional path and key milestones along the way.
+          </p>
+        </div>
         <DateTimeline items={careerTimeline} />
       </AnimatedSection>
     </section>

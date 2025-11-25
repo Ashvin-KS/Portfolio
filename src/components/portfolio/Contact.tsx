@@ -21,79 +21,105 @@ interface ContactProps {
   isSubmitting: boolean
 }
 
-export function Contact({ 
-  formData, 
-  handleInputChange, 
-  handleSubmit, 
-  isSubmitting 
+export function Contact({
+  formData,
+  handleInputChange,
+  handleSubmit,
+  isSubmitting
 }: ContactProps) {
   return (
-    <section id="contact" className="py-20 px-4 bg-accent/20">
-      <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+    <section id="contact" className="py-24 px-4 bg-accent/20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background pointer-events-none" />
+      <AnimatedSection animation="fade-up" className="max-w-5xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Have a project in mind or just want to chat? I'd love to hear from you.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           <AnimatedSection animation="fade-left" delay={200}>
-            <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
-            <p className="text-muted-foreground mb-6">
-              I'm always interested in hearing about new projects and opportunities. 
-              Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
-            <div className="space-y-4">
-              {[
-                { icon: Mail, text: "ashvinksg@gmail.com " },
-                { icon: Github, text: "https://github.com/Ashvin-KS/" },
-                { icon: Linkedin, text: "https://www.linkedin.com/in/ashvin-k-s-464a10303" }
-              ].map((contact, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-background/50 backdrop-blur-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <contact.icon className="w-5 h-5 text-primary" />
-                  <span>{contact.text}</span>
-                </div>
-              ))}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  I'm currently available for freelance work and open to full-time opportunities.
+                  If you have a project that needs some creative touch, let's discuss how we can work together.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  { icon: Mail, label: "Email", text: "ashvinksg@gmail.com", href: "mailto:ashvinksg@gmail.com" },
+                  { icon: Github, label: "GitHub", text: "github.com/Ashvin-KS", href: "https://github.com/Ashvin-KS/" },
+                  { icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/ashvin-k-s", href: "https://www.linkedin.com/in/ashvin-k-s-464a10303" }
+                ].map((contact, index) => (
+                  <a
+                    key={index}
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/50 hover:bg-accent/50 transition-all duration-300 group"
+                  >
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
+                      <contact.icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">{contact.label}</p>
+                      <p className="font-medium group-hover:text-primary transition-colors">{contact.text}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </AnimatedSection>
+
           <AnimatedSection animation="fade-right" delay={400}>
-            <AnimatedCard>
+            <AnimatedCard className="border-muted/40 bg-card/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Send a Message</CardTitle>
+                <CardTitle className="text-2xl">Send a Message</CardTitle>
                 <CardDescription>
                   Fill out the form below and I'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input 
-                    placeholder="Your Name" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="transform transition-all duration-300 focus:scale-[1.02]"
-                  />
-                  <Input 
-                    type="email" 
-                    placeholder="Your Email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="transform transition-all duration-300 focus:scale-[1.02]"
-                  />
-                  <Textarea 
-                    placeholder="Your Message" 
-                    rows={4} 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="transform transition-all duration-300 focus:scale-[1.02]"
-                  />
-                  <Button 
-                    type="submit" 
-                    className="w-full transform transition-all duration-300 hover:scale-105 hover:shadow-lg" 
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <Input
+                      placeholder="Your Name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-background/50 border-border/50 focus:border-primary transition-colors h-12"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Input
+                      type="email"
+                      placeholder="Your Email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-background/50 border-border/50 focus:border-primary transition-colors h-12"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Textarea
+                      placeholder="Your Message"
+                      rows={6}
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-background/50 border-border/50 focus:border-primary transition-colors resize-none"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full h-12 text-lg font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}

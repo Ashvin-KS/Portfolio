@@ -21,124 +21,81 @@ interface ProjectsProps {
 
 export function Projects({ projects }: ProjectsProps) {
   return (
-    <section id="projects" className="py-20 px-4 bg-accent/20">
-      <AnimatedSection animation="fade-up" className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            {projects.slice(0, 2).map((project, index) => (
-              <AnimatedSection 
-                key={index} 
-                animation="slide-up" 
-                delay={index * 200}
-              >
-                <AnimatedCard className="overflow-hidden group">
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/3 aspect-video md:aspect-square bg-muted relative overflow-hidden">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                    </div>
-                    <div className="md:w-2/3 p-6">
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="flex items-center justify-between">
-                          {project.title}
-                          <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a 
-                              href={project.github} 
-                              className="p-2 rounded-md hover:bg-accent transition-all duration-300 transform hover:scale-110"
-                            >
-                              <Github className="w-4 h-4" />
-                            </a>
-                            <a 
-                              href={project.demo} 
-                              className="p-2 rounded-md hover:bg-accent transition-all duration-300 transform hover:scale-110"
-                            >
-                              <ExternalLink className="w-4 h-4" />
-                            </a>
-                          </div>
-                        </CardTitle>
-                        <CardDescription>{project.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <div className="flex flex-wrap gap-2">
-                          {project.tech.map((tech, techIndex) => (
-                            <Badge 
-                              key={techIndex} 
-                              variant="secondary"
-                              className="transform transition-all duration-300 hover:scale-105 hover:shadow-md"
-                            >
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
+    <section id="projects" className="py-24 px-4 bg-accent/20 relative">
+      <div className="absolute inset-0 bg-grid-black/[0.05] dark:bg-grid-white/[0.05] [mask-image:linear-gradient(0deg,transparent,black)] pointer-events-none" />
+      <AnimatedSection animation="fade-up" className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A collection of my recent work, ranging from web applications to AI experiments.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <AnimatedSection
+              key={index}
+              animation="fade-up"
+              delay={index * 100}
+            >
+              <AnimatedCard className="h-full group overflow-hidden neo-card-lg neo-card-lg-hover">
+                <div className="flex flex-col md:flex-row h-full">
+                  <div className="relative w-full md:w-2/5 aspect-video md:aspect-auto overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-full bg-background/10 text-white hover:bg-background hover:text-foreground transition-all duration-300 transform hover:scale-110"
+                        aria-label="View Source"
+                      >
+                        <Github className="w-5 h-5" />
+                      </a>
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-full bg-background/10 text-white hover:bg-background hover:text-foreground transition-all duration-300 transform hover:scale-110"
+                        aria-label="View Demo"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
                     </div>
                   </div>
-                </AnimatedCard>
-              </AnimatedSection>
-            ))}
-          </div>
-          <div className="space-y-8">
-            {projects.slice(2).map((project, index) => (
-              <AnimatedSection 
-                key={index + 2} 
-                animation="slide-up" 
-                delay={(index + 2) * 200}
-              >
-                <AnimatedCard className="overflow-hidden group">
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/3 aspect-video md:aspect-square bg-muted relative overflow-hidden">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                    </div>
-                    <div className="md:w-2/3 p-6">
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="flex items-center justify-between">
-                          {project.title}
-                          <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a 
-                              href={project.github} 
-                              className="p-2 rounded-md hover:bg-accent transition-all duration-300 transform hover:scale-110"
-                            >
-                              <Github className="w-4 h-4" />
-                            </a>
-                            <a 
-                              href={project.demo} 
-                              className="p-2 rounded-md hover:bg-accent transition-all duration-300 transform hover:scale-110"
-                            >
-                              <ExternalLink className="w-4 h-4" />
-                            </a>
-                          </div>
-                        </CardTitle>
-                        <CardDescription>{project.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <div className="flex flex-wrap gap-2">
-                          {project.tech.map((tech, techIndex) => (
-                            <Badge 
-                              key={techIndex} 
-                              variant="secondary"
-                              className="transform transition-all duration-300 hover:scale-105 hover:shadow-md"
-                            >
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </div>
+
+                  <div className="p-6 flex flex-col flex-grow md:w-3/5">
+                    <CardHeader className="p-0 mb-4">
+                      <CardTitle className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-sm line-clamp-3">
+                        {project.description}
+                      </CardDescription>
+                    </CardHeader>
+
+                    <CardContent className="p-0 mt-auto pt-4 border-t border-border/50">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            variant="secondary"
+                            className="bg-secondary/50 hover:bg-secondary transition-colors duration-300 text-xs"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
                   </div>
-                </AnimatedCard>
-              </AnimatedSection>
-            ))}
-          </div>
+                </div>
+              </AnimatedCard>
+            </AnimatedSection>
+          ))}
         </div>
       </AnimatedSection>
     </section>

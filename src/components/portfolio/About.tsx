@@ -17,14 +17,14 @@ export function About() {
             <ScrambledText
               className="scrambled-text-demo"
               radius={50}
-              style={{fontSize: '16px', lineHeight: '1.6'}}
+              style={{ fontSize: '16px', lineHeight: '1.6' }}
               duration={1.2}
               speed={0.5}
               scrambleChars={'.:'}
             >
-  Hey! I'm Ashvin K. S., a second-year CSE student at VIT Chennai (9.41 CGPA) passionate about blending technology and creativity. I love crafting digital experiences that are both intelligent and visually engaging.<br /><br />
-  My journey started with curiosity about how tech shapes the world and grew into a love for innovation. From building web apps and exploring machine learning to creating immersive 3D worlds in Blender and Unreal Engine, I thrive on pushing boundaries and experimenting with ideas.<br /> <br />
-  When I’m not coding, I’m designing in Photoshop, editing in DaVinci Resolve, or diving into new creative tools. I believe every idea—no matter how small—deserves to be built, refined, and brought to life.
+              Hey! I'm Ashvin K. S., a second-year CSE student at VIT Chennai (9.41 CGPA) passionate about blending technology and creativity. I love crafting digital experiences that are both intelligent and visually engaging.<br /><br />
+              My journey started with curiosity about how tech shapes the world and grew into a love for innovation. From building web apps and exploring machine learning to creating immersive 3D worlds in Blender and Unreal Engine, I thrive on pushing boundaries and experimenting with ideas.<br /> <br />
+              When I’m not coding, I’m designing in Photoshop, editing in DaVinci Resolve, or diving into new creative tools. I believe every idea—no matter how small—deserves to be built, refined, and brought to life.
 
             </ScrambledText>
 
@@ -37,9 +37,9 @@ export function About() {
                 { value: "30+", label: "", delay: 200 },
                 { value: "15+", label: "Skills", delay: 300 }
               ].map((stat, index) => (
-                <SpotlightCard 
-                  key={index} 
-                  className="flex flex-col gap-6 rounded-xl border py-6 shadow-sm ease-out hover:shadow-xl hover:-translate-y-1 border-border/50 bg-background/95 backdrop-blur-sm transform transition-all duration-300 hover:scale-105"
+                <SpotlightCard
+                  key={index}
+                  className="flex flex-col gap-6 rounded-none neo-card neo-card-hover py-6 bg-background"
                   data-delay={stat.delay}
                 >
                   <div className="p-0">
